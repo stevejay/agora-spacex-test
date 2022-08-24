@@ -25,3 +25,4 @@ If you want to test building and running the image locally, then run the followi
 ## Issues
 
 - `@typescript-eslint/eslint-plugin` version is locked to v5.33.0 because of [a bug with the latest version](https://github.com/typescript-eslint/typescript-eslint/issues/5525).
+- Storybook needs to be run with node v16, not a later major version.

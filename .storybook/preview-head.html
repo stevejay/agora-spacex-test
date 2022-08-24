@@ -7,3 +7,8 @@
     font-family: 'Readex Pro', sans-serif;
   }
 </style>
+
+<!-- Fix for @storybook/addon-interactions use of jest-mock that relies on the node global variable: -->
+<script>
+  window.global = window;
+</script>

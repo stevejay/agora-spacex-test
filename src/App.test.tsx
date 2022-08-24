@@ -5,5 +5,5 @@ import { App } from '@/App';
 
 it('should pass', () => {
   render(<App />);
-  expect(screen.getByRole('heading')).to.have.text('Hello Vite + React! (mode=development)');
+  expect(screen.getByRole('heading')).to.have.text('Hello Vite + React! (mode=test)');
 });

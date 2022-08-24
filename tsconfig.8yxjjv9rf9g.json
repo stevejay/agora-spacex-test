@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "noUnusedLocals": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "skipDefaultLibCheck": true
+  },
+  "include": [],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
+  "exclude": ["./types-temp", "**/node_modules", "**/.*/"],
+  "files": [
+    "src/types/image.d.ts",
+    "src/types/viteEnv.d.ts",
+    "/Users/stevejay/coding/agora-spacex-test/src/App.test.tsx",
+    "/Users/stevejay/coding/agora-spacex-test/src/main.tsx",
+    "/Users/stevejay/coding/agora-spacex-test/src/stories/App.stories.tsx"
+  ]
+}
