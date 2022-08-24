@@ -1,0 +1,7 @@
+version: '3.7'
+
+services:
+  agora-spacex-test:
+    build: .
+    ports:
+      - '6008:80'

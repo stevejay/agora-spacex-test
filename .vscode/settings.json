@@ -1,0 +1,36 @@
+{
+  "search.exclude": {
+    ".vite/": true,
+    ".yarn/": true,
+    "coverage/": true,
+    "dist/": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.markdownlint": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "env-*": true
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true,
+    "env*": true,
+    "*.tsbuildinfo": true,
+    ".vite/": true
+  },
+  "css.validate": false,
+  "stylelint.enable": true,
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "eslint.validate": ["html", "javascript", "typescript", "javascriptreact", "typescriptreact"],
+  "eslint.packageManager": "yarn",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

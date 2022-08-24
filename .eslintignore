@@ -1,0 +1,46 @@
+#-------------------------------------------------------------------------------------------------------------------
+# Keep this section in sync with .gitignore
+#-------------------------------------------------------------------------------------------------------------------
+
+/node_modules/
+.DS_Store
+/dist/
+/dist-ssr/
+*.local
+
+# vite
+/.vite/
+
+# yarn (without PnP)
+.pnp.*
+.yarn/*
+
+# linting caches
+.stylelintcache
+.eslintcache
+
+# TS types generation
+*.tsbuildinfo
+/types-temp/
+
+# Storybook
+/storybook-static/
+
+# Playwright
+/e2e-tests-results/
+
+# npm publish
+/*.tgz
+
+# coverage
+/coverage
+
+# VSCode
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+
+#-------------------------------------------------------------------------------------------------------------------
+# eslint-specific overrides
+#-------------------------------------------------------------------------------------------------------------------
