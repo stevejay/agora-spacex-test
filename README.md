@@ -1,6 +1,6 @@
 # Agora SpaceX Test
 
-This is literally a single page app for searching for SpaceX launches. I used my standard vite starter script in [this gist](https://gist.github.com/stevejay/e8067e8ea953aaad979c4408e61f6322).
+This is literally a single page app for searching for SpaceX launches. I used my standard vite starter script in [this gist](https://gist.github.com/stevejay/e8067e8ea953aaad979c4408e61f6322); there are no Storybook or Playwright tests.
 
 ## Running the app
 
