@@ -1,28 +1,22 @@
-# Title
+# Agora SpaceX Test
 
-## Building the Web site Docker image
+This is literally a single page app for searching for SpaceX launches. I used my standard vite starter script in [this gist](https://gist.github.com/stevejay/e8067e8ea953aaad979c4408e61f6322).
 
-The image currently needs to be manually built locally and then pushed to Docker Hub. The image is built and pushed with a tag of `latest`.
+## Running the app
 
-First log in to Docker:
+1. `cd` into this project directory.
+1. Run `yarn`.
+1. Run `yarn dev`.
 
-```bash
-docker login -u yourusername
-[enter your password]
-```
+The app should now be available to view using the URL `http://localhost:5173/`.
 
-Then build and push the image:
+The tests can be run using `yarn test`. You need to run the tests using a version of node less than v18; I use node v17.
 
-```bash
-docker build --tag stevejay/agora-spacex-testatest --file Dockerfile .
-docker push stevejay/agora-spacex-testatest
-```
+## Improvements
 
-### Building and running locally
-
-If you want to test building and running the image locally, then run the following command from the project root: `docker-compose up --force-recreate --build --detach`. You should now be able to access the Web site at `http://localhost:6008/`.
+- There is some duplicated element styling, particularly with the buttons. A reusable button component could be created to fix this.
 
 ## Issues
 
 - `@typescript-eslint/eslint-plugin` version is locked to v5.33.0 because of [a bug with the latest version](https://github.com/typescript-eslint/typescript-eslint/issues/5525).
-- Storybook needs to be run with node v16, not a later major version.
+- Storybook needs to be run with node v16. It cannot be run currently with a later version.
