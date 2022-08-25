@@ -15,6 +15,9 @@ The tests can be run using `yarn test`. You need to run the tests using a versio
 ## Improvements
 
 - There is some duplicated element styling, particularly with the buttons. A reusable button component could be created to fix this.
+- For simplicity I used the HTML dialog element to show the launch details, but for better tab trapping and focus handling I would switch to dialog library component.
+- I could disable the search and clear buttons if there is no search term in the searchbox.
+- Look for and handle an error response from the server.
 
 ## Issues
 

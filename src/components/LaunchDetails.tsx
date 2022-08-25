@@ -17,7 +17,7 @@ export function LaunchDetails({ details }: { details: LaunchSummary['details'] }
       <dialog
         ref={modalRef}
         aria-labelledby={id}
-        className="rounded p-4 shadow-xl bg-slate-800 text-slate-100 max-w-2xl space-y-4"
+        className="rounded p-4 shadow-xl bg-slate-800 text-slate-100 max-w-2xl space-y-6 text-left"
       >
         <h2 id={id} className="text-lg font-bold">
           Launch Details
