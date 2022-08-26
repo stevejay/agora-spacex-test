@@ -39,7 +39,8 @@ export async function fetchLaunchesByQuery({
       options: {
         sort: { [sortField]: sortAscending ? 'asc' : 'desc' },
         limit,
-        offset
+        offset,
+        select: 'id name date_utc details'
       }
     })
   });

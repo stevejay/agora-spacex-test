@@ -79,7 +79,7 @@ it('allows the user to search by launch name', async () => {
 
   expect(capturedRequest.current).toEqual({
     query: { upcoming: false, name: { $regex: 'Starlink', $options: 'xi' } },
-    options: { sort: { date_utc: 'desc' }, limit: 50, offset: 0 }
+    options: { sort: { date_utc: 'desc' }, limit: 50, offset: 0, select: 'id name date_utc details' }
   });
 });
 
@@ -122,12 +122,12 @@ it('displays the results in a table', async () => {
 
   let row = within(table).getByTestId(LAUNCH_ONE.id);
   expect(within(row).getByRole('cell', { name: LAUNCH_ONE.name })).to.exist;
-  expect(within(row).getByRole('cell', { name: LAUNCH_ONE.date_utc })).to.exist;
+  expect(within(row).getByRole('cell', { name: 'Fri, 19 Aug 2022 19:24:00 GMT' })).to.exist;
   expect(within(row).getByRole('button', { name: 'View rocket details' })).to.exist;
 
   row = within(table).getByTestId(LAUNCH_TWO.id);
   expect(within(row).getByRole('cell', { name: LAUNCH_TWO.name })).to.exist;
-  expect(within(row).getByRole('cell', { name: LAUNCH_TWO.date_utc })).to.exist;
+  expect(within(row).getByRole('cell', { name: 'Fri, 12 Aug 2022 21:30:00 GMT' })).to.exist;
   expect(within(row).getByRole('button', { name: 'View rocket details' })).to.exist;
 });
 
@@ -173,7 +173,7 @@ it('allows the user to change the date sorting from descending to ascending', as
 
   expect(capturedRequest.current).toEqual({
     query: { upcoming: false, name: { $regex: 'Starlink', $options: 'xi' } },
-    options: { sort: { date_utc: 'asc' }, limit: 50, offset: 0 }
+    options: { sort: { date_utc: 'asc' }, limit: 50, offset: 0, select: 'id name date_utc details' }
   });
 });
 
@@ -192,7 +192,7 @@ it('allows the user to sort by name', async () => {
   expect(within(table).getByRole('columnheader', { name: /Date/ })).not.to.have.attribute('aria-sort');
   expect(capturedRequest.current).toEqual({
     query: { upcoming: false, name: { $regex: 'Starlink', $options: 'xi' } },
-    options: { sort: { name: 'desc' }, limit: 50, offset: 0 }
+    options: { sort: { name: 'desc' }, limit: 50, offset: 0, select: 'id name date_utc details' }
   });
 
   // Sort by name ascending
@@ -202,6 +202,6 @@ it('allows the user to sort by name', async () => {
   expect(within(table).getByRole('columnheader', { name: /Name/ })).to.have.attribute('aria-sort', 'ascending');
   expect(capturedRequest.current).toEqual({
     query: { upcoming: false, name: { $regex: 'Starlink', $options: 'xi' } },
-    options: { sort: { name: 'asc' }, limit: 50, offset: 0 }
+    options: { sort: { name: 'asc' }, limit: 50, offset: 0, select: 'id name date_utc details' }
   });
 });

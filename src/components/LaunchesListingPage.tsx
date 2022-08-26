@@ -79,7 +79,7 @@ export function LaunchesListingPage() {
             {data.docs.map(({ id, name, date_utc, details }) => (
               <tr key={id} data-testid={id}>
                 <td className="p-4 w-1/3">{name ?? 'Unknown'}</td>
-                <td className="p-4 w-1/3">{date_utc ?? 'Unknown'}</td>
+                <td className="p-4 w-1/3">{new Date(date_utc).toUTCString() ?? 'Unknown'}</td>
                 <td className="p-4 w-1/3 text-right">
                   <LaunchDetails details={details} />
                 </td>
