@@ -26,16 +26,15 @@ export async function fetchLaunchesByQuery({
   sortAscending: boolean;
   launchName?: string;
 }): Promise<LaunchesQueryResponse> {
-  const query: { upcoming: boolean; name?: object } = { upcoming: false };
-  if (launchName) {
-    // Options docs: https://www.mongodb.com/docs/manual/reference/operator/query/regex/#mongodb-query-op.-options
-    query.name = { $regex: launchName, $options: 'xi' };
+  if (!launchName) {
+    return { docs: [] };
   }
   const response = await fetch(`${baseUrl}/v4/launches/query`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      query,
+      // Options docs: https://www.mongodb.com/docs/manual/reference/operator/query/regex/#mongodb-query-op.-options
+      query: { upcoming: false, name: { $regex: launchName, $options: 'xi' } },
       options: {
         sort: { [sortField]: sortAscending ? 'asc' : 'desc' },
         limit,
@@ -44,5 +43,11 @@ export async function fetchLaunchesByQuery({
       }
     })
   });
+  if (response.status !== 200) {
+    if (response.status >= 400 && response.status <= 499) {
+      return { docs: [] };
+    }
+    throw new Error('Server error when fetching search results');
+  }
   return response.json();
 }

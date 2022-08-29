@@ -1,6 +1,10 @@
 import { ReactElement, ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, RenderOptions } from '@testing-library/react';
+import { Provider } from 'jotai';
+
+// import { launchNameAtom, sortAscendingAtom, sortFieldAtom } from './components/LaunchesSearchPage';
+// import { SortField } from './types';
 
 export interface AllTheProvidersProps {
   /** The children that are rendered by RTL. */
@@ -9,7 +13,17 @@ export interface AllTheProvidersProps {
 
 export function AllTheProviders({ children }: AllTheProvidersProps) {
   const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } });
-  return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
+  return (
+    <Provider
+    // initialValues={[
+    //   [sortFieldAtom, SortField.DATE],
+    //   [sortAscendingAtom, false],
+    //   [launchNameAtom, '']
+    // ]}
+    >
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    </Provider>
+  );
 }
 
 const customRender = (
