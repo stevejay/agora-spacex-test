@@ -1,13 +1,16 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Provider } from 'jotai';
 
-import { LaunchesListingPage } from './components/LaunchesListingPage';
+import { LaunchesSearchPage } from './components/LaunchesSearchPage';
 
 const queryClient = new QueryClient();
 
 export function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <LaunchesListingPage />
-    </QueryClientProvider>
+    <Provider>
+      <QueryClientProvider client={queryClient}>
+        <LaunchesSearchPage />
+      </QueryClientProvider>
+    </Provider>
   );
 }

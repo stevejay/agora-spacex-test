@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^4.2.1",
+    "jotai": "^1.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -51,7 +52,7 @@
     "@types/prettier": "^2",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
-    "@typescript-eslint/eslint-plugin": "5.33.0",
+    "@typescript-eslint/eslint-plugin": "^5.35.1",
     "@typescript-eslint/parser": "^5.34.0",
     "@vitejs/plugin-react": "^2.0.1",
     "autoprefixer": "^10.4.8",

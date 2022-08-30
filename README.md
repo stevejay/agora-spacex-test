@@ -15,10 +15,7 @@ The tests can be run using `yarn test`. You need to run the tests using a versio
 ## Improvements
 
 - There is some duplicated element styling, particularly with the buttons. A reusable button component could be created to fix this.
-- For simplicity I used the HTML dialog element to show the launch details, but for better tab trapping and focus handling I would switch to dialog library component.
+- For simplicity I used the HTML dialog element to show the launch details, but for better browser support, tab trapping, focus handling, and scroll locking, I would switch to a custom dialog component.
 - I could disable the search and clear buttons if there is no search term in the searchbox.
-- Look for and handle an error response from the server.
-
-## Issues
-
-- `@typescript-eslint/eslint-plugin` version is locked to v5.33.0 because of [a bug with the latest version](https://github.com/typescript-eslint/typescript-eslint/issues/5525).
+- I could look for and handle error responses from the API.
+- I could map the response from the SpaceX API so that, for example, the property 'date_utc' is mapped to 'dateUtc'. This means the property name matches JavaScript conventions. That property could also be mapped to a `Date` object.
