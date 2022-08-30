@@ -210,3 +210,18 @@ it('allows the user to sort by name', async () => {
     options: { sort: { name: 'asc' }, limit: 50, offset: 0, select: 'id name date_utc details' }
   });
 });
+
+it('allows for deep-linking to a search', async () => {
+  const capturedRequest = { current: '' };
+  installSearchHandler({ docs: [LAUNCH_ONE] }, capturedRequest);
+  window.location.assign('#launchName="star"&sortField="name"&sortAscending=true');
+  render(<LaunchesSearchPage />);
+  await screen.findByText('1 result returned');
+
+  const form = screen.getByRole('form', { name: 'Search launches' });
+  const searchbox = within(form).getByRole('searchbox', { name: 'Search launches' });
+  expect(searchbox).to.have.value('star');
+
+  const table = await screen.findByRole('table');
+  expect(within(table).getByRole('columnheader', { name: /Name/ })).to.have.attribute('aria-sort', 'ascending');
+});

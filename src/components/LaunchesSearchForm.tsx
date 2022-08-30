@@ -1,4 +1,4 @@
-import { FormEventHandler, useState } from 'react';
+import { FormEventHandler, useEffect, useState } from 'react';
 
 export interface LaunchesSearchFormProps {
   launchName: string;
@@ -10,10 +10,13 @@ export function LaunchesSearchForm({ launchName, setLaunchName, clearSearchParam
   const [searchText, setSearchText] = useState(launchName);
   const handleSearchSubmit: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
-    setLaunchName(searchText);
+    setLaunchName(searchText.trim());
   };
+  useEffect(() => {
+    setSearchText(launchName);
+  }, [setSearchText, launchName]);
   return (
-    <form onSubmit={handleSearchSubmit} aria-labelledby="nameSearchLabel" key={launchName}>
+    <form onSubmit={handleSearchSubmit} aria-labelledby="nameSearchLabel">
       <label id="nameSearchLabel" htmlFor="nameSearch" className="sr-only">
         Search launches
       </label>
